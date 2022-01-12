@@ -11,11 +11,29 @@
  Target Server Version : 50720
  File Encoding         : 65001
 
- Date: 12/01/2022 12:49:30
+ Date: 12/01/2022 20:06:32
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for t_damaged
+-- ----------------------------
+DROP TABLE IF EXISTS `t_damaged`;
+CREATE TABLE `t_damaged`  (
+  `id` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `number` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `type_id` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of t_damaged
+-- ----------------------------
+INSERT INTO `t_damaged` VALUES ('C05C1C0D4E6441F5B0838F26FED97A39', '购入高清电视', '10', '9BD59BE1B9D449C598D23EC8F8FF6833');
+INSERT INTO `t_damaged` VALUES ('DA08DB44319C42A1904BEE0CD07830CE', '格力空调', '1', 'F0B3C7B9361C45F6A4841A8A4AB76622');
 
 -- ----------------------------
 -- Table structure for t_ha

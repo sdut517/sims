@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.haims.dao.SupplierTypeMapper">
-  <resultMap id="BaseResultMap" type="com.haims.pojo.SupplierType">
+<mapper namespace="com.sims.dao.SupplierTypeMapper">
+  <resultMap id="BaseResultMap" type="com.sims.pojo.SupplierType">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="supplier_id" jdbcType="VARCHAR" property="supplierId" />
     <result column="type_id" jdbcType="VARCHAR" property="typeId" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List">
     id, supplier_id, type_id
   </sql>
-  <select id="selectByExample" parameterType="com.haims.pojo.SupplierTypeExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.sims.pojo.SupplierTypeExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -91,19 +91,19 @@
     delete from t_supplier_type
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.haims.pojo.SupplierTypeExample">
+  <delete id="deleteByExample" parameterType="com.sims.pojo.SupplierTypeExample">
     delete from t_supplier_type
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.haims.pojo.SupplierType">
+  <insert id="insert" parameterType="com.sims.pojo.SupplierType">
     insert into t_supplier_type (id, supplier_id, type_id
       )
     values (#{id,jdbcType=VARCHAR}, #{supplierId,jdbcType=VARCHAR}, #{typeId,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.haims.pojo.SupplierType">
+  <insert id="insertSelective" parameterType="com.sims.pojo.SupplierType">
     insert into t_supplier_type
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -128,7 +128,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.haims.pojo.SupplierTypeExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.sims.pojo.SupplierTypeExample" resultType="java.lang.Long">
     select count(*) from t_supplier_type
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -160,7 +160,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.haims.pojo.SupplierType">
+  <update id="updateByPrimaryKeySelective" parameterType="com.sims.pojo.SupplierType">
     update t_supplier_type
     <set>
       <if test="supplierId != null">
@@ -172,7 +172,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.haims.pojo.SupplierType">
+  <update id="updateByPrimaryKey" parameterType="com.sims.pojo.SupplierType">
     update t_supplier_type
     set supplier_id = #{supplierId,jdbcType=VARCHAR},
       type_id = #{typeId,jdbcType=VARCHAR}

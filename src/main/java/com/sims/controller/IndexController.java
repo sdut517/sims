@@ -67,6 +67,18 @@ public class IndexController {
 	public String stuff_update() {
 		return "stuff_update";
 	}
+	@RequestMapping("/page/damaged_add")
+	public String damaged_add() {
+		return "damaged_add";
+	}
+	@RequestMapping("/page/damaged_list")
+	public String damaged_list() {
+		return "damaged_list";
+	}
+	@RequestMapping("/page/damaged_update")
+	public String damaged_update() {
+		return "damaged_update";
+	}
 	@RequestMapping("/page/supplier_add")
 	public String supplier_add() {
 		return "supplier_add";
@@ -115,6 +127,10 @@ public class IndexController {
 	public String stuff_analyse() {
 		return "stuff_analyse";
 	}
+	@RequestMapping("/page/damaged_analyse")
+	public String damaged_analyse() {
+		return "damaged_analyse";
+	}
 	@RequestMapping("/page/order_analyse")
 	public String order_analyse() {
 		return "order_analyse";
@@ -151,12 +167,17 @@ public class IndexController {
 			mangerUrls.add(new MangerUrl("家电库存列表", "stuff_list"));
 			mangerUrls.add(new MangerUrl("增加家电库存信息", "stuff_add"));
 			mangerUrls.add(new MangerUrl("家电库存分析", "stuff_analyse"));
+			mangerUrls.add(new MangerUrl("家电库存列表", "damaged_list"));
+			mangerUrls.add(new MangerUrl("增加家电库存信息", "damaged_add"));
+			mangerUrls.add(new MangerUrl("家电库存分析", "damaged_analyse"));
 		} else if (roleid.equals("2")) {
 			mangerUrls.add(new MangerUrl("家电类型列表", "type_list"));
 			mangerUrls.add(new MangerUrl("增加家电类型信息", "type_add"));
 			mangerUrls.add(new MangerUrl("家电订单列表", "order_list"));
 			mangerUrls.add(new MangerUrl("家电库存列表", "stuff_list"));
 			mangerUrls.add(new MangerUrl("增加家电库存信息", "stuff_add"));
+			mangerUrls.add(new MangerUrl("家电库存列表", "damaged_list"));
+			mangerUrls.add(new MangerUrl("增加家电库存信息", "damaged_add"));
 		} else {
 			mangerUrls.add(new MangerUrl("家电订单列表", "order_list_admin"));
 			mangerUrls.add(new MangerUrl("增加家电订单信息", "order_add"));

@@ -1,0 +1,74 @@
+<head th:replace="common :: common_head(~{},~{})" xmlns:th="http://www.thymeleaf.org">
+
+</head>
+<body>
+<h3>报损分析图</h3>
+<div class="card">
+    <div style="display: flex">
+        <div id="damagedChart7" style="height: 400px; width: 50%;"></div>
+        <div>
+            <div id="damagedChart8" style="height: 400px; width: 50%;"></div>
+        </div>
+    </div>
+</div>
+
+<!--  end card  -->
+<script>
+
+    $().ready(function () {
+
+        $.ajax({
+            dataType:"text",
+            url: "/damaged/damagedlist",
+            type: "get",
+            success: function(e) {
+                let damageds = JSON.parse(e)
+                let damagedPoints = []
+                let sum = 0
+                for (let i = 0; i < damageds.length; i++) {
+                    damagedPoints[i] = {
+                        label: damageds[i].name,
+                        y: Number.parseInt(damageds[i].number)
+                    }
+                    sum += damagedPoints[i].y
+                }
+                for (let i = 0; i < damageds.length; i++) {
+                    damagedPoints[i].z = (damagedPoints[i].y * 1.0 / sum * 100).toFixed(2)
+                }
+                var chart1 = new CanvasJS.Chart("damagedChart7", {
+                    theme: "light1",
+                    animationEnabled: true,
+                    title: {
+                        text: "报损分析柱状图"
+                    },
+                    data: [{
+                        type: "column",
+                        dataPoints: damagedPoints
+                    }]
+                });
+                chart1.render();
+                var chart2 = new CanvasJS.Chart("damagedChart8", {
+                    theme: "light2",
+                    exportEnabled: true,
+                    animationEnabled: true,
+                    title: {
+                        text: "报损分析饼状图"
+                    },
+                    data: [{
+                        type: "pie",
+                        startAngle: 25,
+                        toolTipContent: "<b>{label}</b>: {z}%",
+                        showInLegend: "true",
+                        legendText: "{label}",
+                        indexLabelFontSize: 16,
+                        indexLabel: "{label} - {z}%",
+                        dataPoints: damagedPoints
+                    }]
+                });
+                chart2.render();
+            }
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,22 +1,5 @@
 package com.sims.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import com.sims.util.ExportExcelUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.alibaba.fastjson.JSON;
 import com.sims.constant.Constant;
 import com.sims.pojo.Order;
@@ -24,7 +7,22 @@ import com.sims.pojo.OrderExample;
 import com.sims.pojo.Stuff;
 import com.sims.service.OrderService;
 import com.sims.service.StuffService;
+import com.sims.util.ExportExcelUtil;
 import com.sims.util.UUIDUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 @Controller
 @RequestMapping("/order")
@@ -229,12 +227,12 @@ public class OrderController {
 		fieldMap.put("money","交易价格");
 		fieldMap.put("number","交易数量");
 		fieldMap.put("userId","订单类型");
-		fieldMap.put("typeId","家电类型编号");
-		fieldMap.put("typeName","家电类型名称");
-		fieldMap.put("stuffId","家电编号");
-		fieldMap.put("stuffName","家电名称");
-		fieldMap.put("supplierId","家电供货商编号");
-		fieldMap.put("supplierName","家电供货商名称");
+		fieldMap.put("typeId","货物类型编号");
+		fieldMap.put("typeName","货物类型名称");
+		fieldMap.put("stuffId","商品编号");
+		fieldMap.put("stuffName","商品名称");
+		fieldMap.put("supplierId","供货商编号");
+		fieldMap.put("supplierName","供货商名称");
 		fieldMap.put("time","交易时间");
 		fieldMap.put("userName","订单操作员");
 

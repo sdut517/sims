@@ -81,7 +81,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from t_order
+    from `order`
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -91,33 +91,33 @@
     order by time desc
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
-    from t_order
+    from `order`
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from t_order
+    delete from `order`
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.sims.pojo.OrderExample">
-    delete from t_order
+    delete from `order`
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.sims.pojo.Order">
-    insert into t_order (id, name, type_id, 
-      supplier_id, stuff_id, number, 
-      time, money, user_id, 
+    insert into `order` (id, name, type_id,
+      supplier_id, stuff_id, number,
+      time, money, user_id,
       state, is_delete)
-    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{typeId,jdbcType=VARCHAR}, 
-      #{supplierId,jdbcType=VARCHAR}, #{stuffId,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, 
-      #{time,jdbcType=VARCHAR}, #{money,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{typeId,jdbcType=VARCHAR},
+      #{supplierId,jdbcType=VARCHAR}, #{stuffId,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR},
+      #{time,jdbcType=VARCHAR}, #{money,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR},
       #{state,jdbcType=INTEGER}, #{isDelete,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.sims.pojo.Order">
-    insert into t_order
+    insert into `order`
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -190,13 +190,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.sims.pojo.OrderExample" resultType="java.lang.Long">
-    select count(*) from t_order
+    select count(*) from `order`
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update t_order
+    update `order`
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=VARCHAR},
@@ -237,7 +237,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update t_order
+    update `order`
     set id = #{record.id,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
       type_id = #{record.typeId,jdbcType=VARCHAR},
@@ -254,7 +254,7 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.sims.pojo.Order">
-    update t_order
+    update `order`
     <set>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
@@ -290,7 +290,7 @@
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sims.pojo.Order">
-    update t_order
+    update `order`
     set name = #{name,jdbcType=VARCHAR},
       type_id = #{typeId,jdbcType=VARCHAR},
       supplier_id = #{supplierId,jdbcType=VARCHAR},

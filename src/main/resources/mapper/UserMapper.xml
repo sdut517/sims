@@ -76,7 +76,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from t_user
+    from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,21 +87,21 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from t_user
+    from user
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from t_user
+    delete from user
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.sims.pojo.UserExample">
-    delete from t_user
+    delete from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.sims.pojo.User">
-    insert into t_user (id, name, phone, 
+    insert into user (id, name, phone, 
       password, roleid, state
       )
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
@@ -109,7 +109,7 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="com.sims.pojo.User">
-    insert into t_user
+    insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -152,13 +152,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.sims.pojo.UserExample" resultType="java.lang.Long">
-    select count(*) from t_user
+    select count(*) from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update t_user
+    update user
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=VARCHAR},
@@ -184,7 +184,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update t_user
+    update user
     set id = #{record.id,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
       phone = #{record.phone,jdbcType=VARCHAR},
@@ -196,7 +196,7 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.sims.pojo.User">
-    update t_user
+    update user
     <set>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
@@ -217,7 +217,7 @@
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sims.pojo.User">
-    update t_user
+    update user
     set name = #{name,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

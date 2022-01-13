@@ -75,7 +75,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from t_type
+    from type
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,27 +86,27 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from t_type
+    from type
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from t_type
+    delete from type
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.sims.pojo.TypeExample">
-    delete from t_type
+    delete from type
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.sims.pojo.Type">
-    insert into t_type (id, type, parent_id, 
+    insert into type (id, type, parent_id, 
       t_level, state)
     values (#{id,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, 
       #{tLevel,jdbcType=INTEGER}, #{state,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.sims.pojo.Type">
-    insert into t_type
+    insert into type
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -143,13 +143,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.sims.pojo.TypeExample" resultType="java.lang.Long">
-    select count(*) from t_type
+    select count(*) from type
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update t_type
+    update type
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=VARCHAR},
@@ -172,7 +172,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update t_type
+    update type
     set id = #{record.id,jdbcType=VARCHAR},
       type = #{record.type,jdbcType=VARCHAR},
       parent_id = #{record.parentId,jdbcType=VARCHAR},
@@ -183,7 +183,7 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.sims.pojo.Type">
-    update t_type
+    update type
     <set>
       <if test="type != null">
         type = #{type,jdbcType=VARCHAR},
@@ -201,7 +201,7 @@
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sims.pojo.Type">
-    update t_type
+    update type
     set type = #{type,jdbcType=VARCHAR},
       parent_id = #{parentId,jdbcType=VARCHAR},
       t_level = #{tLevel,jdbcType=INTEGER},

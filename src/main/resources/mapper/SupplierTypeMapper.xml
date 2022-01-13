@@ -73,7 +73,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from t_supplier_type
+    from supplier_type
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -84,27 +84,27 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from t_supplier_type
+    from supplier_type
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from t_supplier_type
+    delete from supplier_type
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.sims.pojo.SupplierTypeExample">
-    delete from t_supplier_type
+    delete from supplier_type
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.sims.pojo.SupplierType">
-    insert into t_supplier_type (id, supplier_id, type_id
+    insert into supplier_type (id, supplier_id, type_id
       )
     values (#{id,jdbcType=VARCHAR}, #{supplierId,jdbcType=VARCHAR}, #{typeId,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.sims.pojo.SupplierType">
-    insert into t_supplier_type
+    insert into supplier_type
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -129,13 +129,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.sims.pojo.SupplierTypeExample" resultType="java.lang.Long">
-    select count(*) from t_supplier_type
+    select count(*) from supplier_type
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update t_supplier_type
+    update supplier_type
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=VARCHAR},
@@ -152,7 +152,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update t_supplier_type
+    update supplier_type
     set id = #{record.id,jdbcType=VARCHAR},
       supplier_id = #{record.supplierId,jdbcType=VARCHAR},
       type_id = #{record.typeId,jdbcType=VARCHAR}
@@ -161,7 +161,7 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.sims.pojo.SupplierType">
-    update t_supplier_type
+    update supplier_type
     <set>
       <if test="supplierId != null">
         supplier_id = #{supplierId,jdbcType=VARCHAR},
@@ -173,7 +173,7 @@
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sims.pojo.SupplierType">
-    update t_supplier_type
+    update supplier_type
     set supplier_id = #{supplierId,jdbcType=VARCHAR},
       type_id = #{typeId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}

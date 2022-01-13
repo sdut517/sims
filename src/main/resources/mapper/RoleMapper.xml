@@ -73,7 +73,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from t_role
+    from role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -84,27 +84,27 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from t_role
+    from role
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_role
+    delete from role
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.sims.pojo.RoleExample">
-    delete from t_role
+    delete from role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.sims.pojo.Role">
-    insert into t_role (id, name, state
+    insert into role (id, name, state
       )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.sims.pojo.Role">
-    insert into t_role
+    insert into role
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -129,13 +129,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.sims.pojo.RoleExample" resultType="java.lang.Long">
-    select count(*) from t_role
+    select count(*) from role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update t_role
+    update role
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
@@ -152,7 +152,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update t_role
+    update role
     set id = #{record.id,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
       state = #{record.state,jdbcType=INTEGER}
@@ -161,7 +161,7 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.sims.pojo.Role">
-    update t_role
+    update role
     <set>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
@@ -173,7 +173,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sims.pojo.Role">
-    update t_role
+    update role
     set name = #{name,jdbcType=VARCHAR},
       state = #{state,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}

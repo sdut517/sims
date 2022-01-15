@@ -37,7 +37,7 @@ public class UserController {
 	@RequestMapping(value = "/login", produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public String login(User user, HttpServletRequest request) {
-//		user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
+		user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
 		HttpSession session = request.getSession();
 		// 设置查找条件
 		UserExample userExample = new UserExample();
